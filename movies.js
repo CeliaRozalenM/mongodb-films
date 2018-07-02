@@ -1,14 +1,21 @@
 var mongoose = require('mongoose');
 
-//Creas el esquema
+//Schemas
 var Schema = mongoose.Schema;
 var moviesSchema = new Schema({
     name: {type: String, required: true, unique: true },
-    year:Number
-})
+    year: Number
+});
 
-//Creas el modelo y exportas con él el Schema. Te pide un nombre y el esquema.
+var directorsSchema = new Schema({
+    name: {type: String, required: true, unique: true },
+    birth: Number
+});
+
+//Create model to export schema. The parameters are "Model Name - (Collection name)" and "Schema Name"
 var Movies = mongoose.model('Movies', moviesSchema);
+var Directors = mongoose.model('Directors', directorsSchema);
 
-//Exportas el módulo
+//Export model
 module.exports = Movies;
+module.exports = Directors;
